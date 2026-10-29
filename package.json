@@ -1,0 +1,76 @@
+{
+  "name": "planview-focus-planner",
+  "version": "0.1.0",
+  "description": "Cross-platform focus planner with timer, tray mode, and tagged todo tracking.",
+  "main": "main.js",
+  "author": "Nico",
+  "license": "MIT",
+  "engines": { "node": "^22.13.0 || ^24.3.0 || >=26.0.0" },
+  "overrides": {
+    "expo": "~58.0.21",
+    "react": "19.3.0",
+    "react-native": "0.88.1"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "test": "npm run test:unit && npm run mobile:check && npm run mobile:export:ios && npm run pack",
+    "test:unit": "node --test packages/core/test/*.test.js apps/mobile/test/*.test.js test/*.test.js",
+    "test:core": "node --test packages/core/test/*.test.js",
+    "test:e2e": "playwright test",
+    "assets": "node scripts/build-assets.js",
+    "mobile": "npm --workspace apps/mobile run start",
+    "mobile:ios": "npm --workspace apps/mobile run ios",
+    "mobile:check": "npm --workspace apps/mobile run check",
+    "mobile:export:ios": "npm --workspace apps/mobile run export:ios",
+    "ios:release:check": "npm run test:unit && npm run mobile:check && npm run mobile:export:ios",
+    "ios:build:preview": "npm --workspace apps/mobile run build:ios:preview",
+    "ios:build:production": "npm --workspace apps/mobile run build:ios:production",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "dist:mac": "electron-builder --mac --x64 --arm64",
+    "dist:win": "electron-builder --win --x64 --arm64"
+  },
+  "devDependencies": {
+    "electron": "^45.1.0",
+    "electron-builder": "^26.18.0",
+    "@playwright/test": "^1.56.0",
+    "sharp": "^0.35.5"
+  },
+  "build": {
+    "appId": "com.planview.focusplanner",
+    "productName": "PlanView Focus Planner",
+    "files": [
+      "main.js",
+      "desktop-store.js",
+      "preload.js",
+      "src/**/*",
+      "packages/core/**/*",
+      "assets/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "mac": {
+      "icon": "assets/icon.png",
+      "artifactName": "${productName}-${version}-${arch}-mac.${ext}",
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "public.app-category.productivity"
+    },
+    "win": {
+      "icon": "assets/icon.ico",
+      "artifactName": "${productName}-${version}-${arch}-win.${ext}",
+      "target": [
+        "nsis",
+        "zip"
+      ]
+    }
+  }
+}

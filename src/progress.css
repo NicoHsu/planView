@@ -1,0 +1,102 @@
+:root {
+  --bg: #f2f2f3;
+  --surface: #ffffff;
+  --ink: #1f2328;
+  --muted: #5c6671;
+  --line: #d0d7de;
+  --accent: #1967d2;
+  --danger: #b42318;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(145deg, #eceef2 0%, #f7f7f8 100%);
+  color: var(--ink);
+  font-family: "IBM Plex Sans", "Noto Sans TC", sans-serif;
+}
+
+.shell {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 16px 30px;
+}
+
+h1 {
+  margin: 0 0 8px;
+}
+
+.lead {
+  margin: 0 0 14px;
+  color: var(--muted);
+}
+
+.list {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.item {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.item h2 {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+}
+
+.tags {
+  margin: 0 0 10px;
+  color: var(--muted);
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+}
+
+select,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  padding: 10px 12px;
+}
+
+.actions {
+  margin-top: 14px;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  padding: 11px 16px;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error {
+  color: var(--danger);
+}

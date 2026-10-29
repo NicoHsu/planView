@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "PlanView",
+    "slug": "planview",
+    "version": "0.1.0",
+    "description": "A local-first timeboxing coach for planning focus blocks, recording progress, and improving time estimates.",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "planview",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "buildNumber": "1",
+      "bundleIdentifier": "com.planview.focusplanner",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false,
+        "NSUserNotificationUsageDescription": "PlanView uses notifications to remind you when a planned focus block ends."
+      }
+    },
+    "plugins": [
+      "expo-notifications",
+      "expo-sqlite",
+      ["expo-splash-screen", {
+        "image": "./assets/icon.png", "imageWidth": 180,
+        "backgroundColor": "#f6f4ef"
+      }]
+    ]
+  }
+}

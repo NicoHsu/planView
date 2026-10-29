@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PlanView Focus Planner</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="app-header">
+        <h1>PlanView Focus Planner</h1>
+        <p>規劃這一輪想完成的任務，啟動後可縮到背景持續倒數。</p>
+      </header>
+
+      <section id="planningSection" class="card">
+        <h2>1. 規劃本輪任務</h2>
+        <label class="field">
+          <span>倒數時間（分鐘）</span>
+          <input id="durationInput" type="number" min="1" max="480" value="60" />
+        </label>
+
+        <div class="todo-toolbar">
+          <h3>Todo 清單</h3>
+          <button id="addTodoBtn" type="button">+ 新增任務</button>
+        </div>
+
+        <div id="todoList" class="todo-list"></div>
+
+        <label class="checkbox-row">
+          <input id="autoBackgroundInput" type="checkbox" checked />
+          <span>啟動後自動切到背景模式（系統匣）</span>
+        </label>
+
+        <button id="startBtn" class="primary" type="button">開始這一輪</button>
+        <p id="planningError" class="error" hidden></p>
+      </section>
+
+      <section id="activeSection" class="card" hidden>
+        <h2>2. 進行中</h2>
+        <p class="timer" id="activeTimer">60:00</p>
+        <div id="activeTodos" class="active-todos"></div>
+        <div class="row-actions">
+          <button id="pauseBtn" type="button">暫停</button>
+          <button id="finishBtn" type="button">結束並回報</button>
+          <button id="backgroundBtn" type="button">切到背景模式</button>
+        </div>
+        <p id="activeHint" class="hint">時間到會自動彈出進度紀錄視窗。</p>
+      </section>
+
+      <section class="card">
+        <h2>分析</h2>
+        <button id="refreshStatsBtn" type="button">重新整理</button>
+        <div id="dailySummary" class="summary-grid"></div>
+        <p id="insightHeadline" class="insight"></p>
+        <div id="statsList" class="stats-list"></div>
+      </section>
+    </main>
+
+    <template id="todoRowTemplate">
+      <article class="todo-row">
+        <label>
+          <span>任務內容</span>
+          <input data-role="title" type="text" placeholder="例如：code review" />
+        </label>
+        <label>
+          <span>Tags（以逗號分隔）</span>
+          <input data-role="tags" type="text" placeholder="backend, spec" />
+        </label>
+        <button data-role="delete" type="button" class="ghost danger">刪除</button>
+      </article>
+    </template>
+
+    <script src="./renderer.js"></script>
+  </body>
+</html>

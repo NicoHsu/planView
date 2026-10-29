@@ -1,0 +1,36 @@
+{
+  "name": "@planview/mobile",
+  "version": "0.1.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "expo start",
+    "ios": "expo start --ios",
+    "android": "expo start --android",
+    "web": "expo start --web",
+    "check": "expo config --type public",
+    "export:ios": "expo export --platform ios --output-dir ../../dist-expo-ios",
+    "doctor": "npx expo-doctor",
+    "build:ios:preview": "npx eas-cli build --platform ios --profile preview",
+    "build:ios:production": "npx eas-cli build --platform ios --profile production",
+    "submit:ios": "npx eas-cli submit --platform ios --profile production"
+  },
+  "dependencies": {
+    "@planview/core": "0.1.0",
+    "expo": "~58.0.21",
+    "expo-notifications": "~58.1.7",
+    "expo-sqlite": "~58.0.14",
+    "expo-status-bar": "~58.0.4",
+    "expo-splash-screen": "~58.0.12",
+    "expo-system-ui": "~58.0.7",
+    "lucide-react-native": "^1.64.0",
+    "react": "19.3.0",
+    "react-native": "0.88.1",
+    "react-native-safe-area-context": "~5.10.1",
+    "react-native-svg": "15.16.0"
+  },
+  "devDependencies": {
+    "babel-preset-expo": "~58.0.22",
+    "@babel/core": "^7.25.2"
+  }
+}

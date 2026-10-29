@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>更新本輪進度</title>
+    <link rel="stylesheet" href="./progress.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <h1>這輪時間已結束</h1>
+      <p class="lead">請記錄剛剛 todo 的完成狀態，送出後可以立即規劃下一輪。</p>
+
+      <section id="todoProgressList" class="list"></section>
+
+      <label class="block">
+        <span>本輪反思（可選）</span>
+        <textarea id="reflectionInput" rows="4" placeholder="例如：被臨時會議中斷 15 分鐘，下輪要切分更細。"></textarea>
+      </label>
+
+      <div class="actions">
+        <button id="submitBtn" class="primary" type="button">送出進度</button>
+      </div>
+      <p id="errorText" class="error" hidden></p>
+    </main>
+
+    <template id="todoProgressTemplate">
+      <article class="item">
+        <h2 data-role="title"></h2>
+        <p data-role="tags" class="tags"></p>
+        <label class="block">
+          <span>狀態</span>
+          <select data-role="status">
+            <option value="done">完成</option>
+            <option value="partial" selected>部分完成</option>
+            <option value="blocked">卡住/未開始</option>
+          </select>
+        </label>
+        <label class="block">
+          <span>備註</span>
+          <textarea data-role="note" rows="2" placeholder="可記錄原因或下步驟"></textarea>
+        </label>
+      </article>
+    </template>
+
+    <script src="./progress.js"></script>
+  </body>
+</html>

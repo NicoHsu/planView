@@ -1,0 +1,15 @@
+node_modules
+dist
+dist-expo-ios
+out
+*.log
+.DS_Store
+.expo/
+.env
+.env.*
+!.env.example
+test-results/
+playwright-report/
+*.ipa
+*.p12
+*.mobileprovision
