@@ -12,6 +12,7 @@
     "export:ios": "expo export --platform ios --output-dir ../../dist-expo-ios",
     "doctor": "npx expo-doctor",
     "build:ios:preview": "npx eas-cli build --platform ios --profile preview",
+    "build:ios:simulator": "npx eas-cli build --platform ios --profile simulator",
     "build:ios:production": "npx eas-cli build --platform ios --profile production",
     "submit:ios": "npx eas-cli submit --platform ios --profile production"
   },

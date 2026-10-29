@@ -15,8 +15,10 @@ Version: 0.1.0. Engineering MVP is verified locally. App Store submission is not
 
 ## External gates
 
-- Expo CLI reports `Not logged in`. Sign in before EAS project setup/build.
-- Apple Developer membership, App Store Connect app record, signing and provisioning are not verified.
+- Expo login verified and EAS project linked: https://expo.dev/accounts/nicohsu/projects/planview (project ID `8c75ead5-a8eb-47ef-bf31-fb872eb9d723`).
+- Simulator native build submitted: https://expo.dev/accounts/nicohsu/projects/planview/builds/92ed130c-4f1e-47e1-9248-3eea289be3a2 (status pending verification).
+- The owner confirmed there is no paid Apple Developer membership. TestFlight / App Store distribution cannot proceed until membership is available. A simulator build profile is provided and does not require paid membership.
+- App Store Connect app record, signing and provisioning are not configured.
 - This Mac has Command Line Tools only, without Xcode / `simctl`; iOS native build and device QA have not run.
 - Complete the [TestFlight device matrix](store/TESTFLIGHT_QA.md), including notifications, lock screen, force quit, reboot, time changes, VoiceOver and large text.
 - Capture real iPhone/iPad screenshots from the verified native build. No mock screenshot is represented as a device capture.
@@ -33,11 +35,9 @@ The remaining audit roots are `zod@3.25.76` (high, Expo CLI tooling) and `deepme
 ```bash
 nvm use
 cd apps/mobile
-npx eas-cli login
-npx eas-cli init
 cd ../..
 npm run ios:release:check
-npm run ios:build:preview
+npm run ios:build:simulator
 ```
 
-After native QA passes, build production, capture screenshots and complete App Store Connect metadata. An exported JS bundle alone is not an App Store submission.
+After installing full Xcode, the simulator artifact can be installed with `npx eas-cli build:run --platform ios --latest`. It cannot be installed directly on an iPhone. Once paid Apple Developer membership is available and native device QA passes, build production, capture screenshots and complete App Store Connect metadata. An exported JS bundle alone is not an App Store submission.

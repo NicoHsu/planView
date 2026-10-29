@@ -30,6 +30,7 @@
     "mobile:export:ios": "npm --workspace apps/mobile run export:ios",
     "ios:release:check": "npm run test:unit && npm run mobile:check && npm run mobile:export:ios",
     "ios:build:preview": "npm --workspace apps/mobile run build:ios:preview",
+    "ios:build:simulator": "npm --workspace apps/mobile run build:ios:simulator",
     "ios:build:production": "npm --workspace apps/mobile run build:ios:production",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",

@@ -46,6 +46,7 @@ npm run assets            # 從既有 SVG 產生 iOS / 桌面 icon
 npm run dist:mac           # Intel + Apple Silicon，dmg / zip
 npm run dist:win           # x64 + arm64，NSIS / zip
 npm run release:manifest   # 產生安裝檔清單與 SHA-256 校驗碼
+npm run ios:build:simulator # 不需要 Apple 付費會員，供 iOS 模擬器使用
 npm run ios:build:preview  # 需要 Expo 登入與 Apple 簽章
 npm run ios:build:production
 npm --workspace apps/mobile run submit:ios
@@ -71,3 +72,5 @@ npm --workspace apps/mobile run submit:ios
 - [隱私權政策](https://nicohsu.github.io/planView/privacy.html)
 
 支援信箱：[nicohsu000@gmail.com](mailto:nicohsu000@gmail.com)
+
+EAS 專案：[nicohsu/planview](https://expo.dev/accounts/nicohsu/projects/planview)。尚未加入 Apple Developer 付費會員，目前以模擬器建置驗證原生編譯，TestFlight／App Store 待會員開通。

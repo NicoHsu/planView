@@ -62,14 +62,9 @@ npm --workspace apps/mobile run submit:ios
 
 ## Current Blocker
 
-The local EAS preview command reaches the expected account gate:
+On 2026-10-29, Expo login was completed and the project was linked to `@nicohsu/planview` (ID `8c75ead5-a8eb-47ef-bf31-fb872eb9d723`). The owner does not have paid Apple Developer membership, so ad hoc device builds, TestFlight and App Store distribution remain blocked.
 
-```text
-An Expo user account is required to proceed.
-Either log in with eas login or set the EXPO_TOKEN environment variable.
-```
-
-On 2026-10-29, `eas whoami` confirmed `Not logged in`. Run `npx eas-cli login`, then `npx eas-cli init` from `apps/mobile` to link an EAS project. Do not invent a project ID. Local JavaScript export does not require this login.
+Use `npm run ios:build:simulator` for a simulator-only native build without paid membership. This produces a simulator app, not an installable iPhone IPA. Install full Xcode to run it, then use `npx eas-cli build:run --platform ios --latest` from `apps/mobile`.
 
 The local machine has only Xcode Command Line Tools; `xcrun simctl` is unavailable. Use EAS Build or install the full compatible Xcode toolchain for native builds.
 

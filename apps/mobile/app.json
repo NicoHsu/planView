@@ -20,10 +20,20 @@
     "plugins": [
       "expo-notifications",
       "expo-sqlite",
-      ["expo-splash-screen", {
-        "image": "./assets/icon.png", "imageWidth": 180,
-        "backgroundColor": "#f6f4ef"
-      }]
-    ]
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/icon.png",
+          "imageWidth": 180,
+          "backgroundColor": "#f6f4ef"
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "8c75ead5-a8eb-47ef-bf31-fb872eb9d723"
+      }
+    },
+    "owner": "nicohsu"
   }
 }
