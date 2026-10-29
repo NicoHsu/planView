@@ -98,14 +98,15 @@ export default function App() {
     setHistory(nextHistory);
     setTasks(nextTasks);
     setActiveSession(storedSession);
+    setShowReflect(Boolean(storedSession?.stoppedAt));
     if (storedSession?.stoppedAt) {
-      setShowReflect(true);
       setTab("focus");
     }
   }, []);
 
   const reload = useCallback(async () => {
     applySnapshot(await service.current.reload());
+    setLoadError("");
   }, [applySnapshot]);
 
   async function boot() {
@@ -251,6 +252,7 @@ export default function App() {
     <SafeAreaProvider>
       <SafeAreaView style={styles.shell}>
         <StatusBar style="dark" />
+        {loadError ? <Text accessibilityRole="alert" style={styles.notificationWarning}>{loadError}</Text> : null}
         {notificationWarning ? <Text accessibilityRole="alert" style={styles.notificationWarning}>{notificationWarning}</Text> : null}
         {tab === "today" && (
           <TodayScreen

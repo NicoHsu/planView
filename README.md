@@ -45,6 +45,7 @@ Electron 操作測試需要可啟動桌面應用的 macOS / Windows 環境；Lin
 npm run assets            # 從既有 SVG 產生 iOS / 桌面 icon
 npm run dist:mac           # Intel + Apple Silicon，dmg / zip
 npm run dist:win           # x64 + arm64，NSIS / zip
+npm run release:manifest   # 產生安裝檔清單與 SHA-256 校驗碼
 npm run ios:build:preview  # 需要 Expo 登入與 Apple 簽章
 npm run ios:build:production
 npm --workspace apps/mobile run submit:ios

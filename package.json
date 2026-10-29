@@ -23,6 +23,7 @@
     "test:core": "node --test packages/core/test/*.test.js",
     "test:e2e": "playwright test",
     "assets": "node scripts/build-assets.js",
+    "release:manifest": "node scripts/release-manifest.js",
     "mobile": "npm --workspace apps/mobile run start",
     "mobile:ios": "npm --workspace apps/mobile run ios",
     "mobile:check": "npm --workspace apps/mobile run check",

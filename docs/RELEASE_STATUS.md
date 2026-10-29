@@ -9,6 +9,8 @@ Version: 0.1.0. Engineering MVP is verified locally. App Store submission is not
 - Expo Doctor: 20/20 checks pass.
 - Expo SDK 58 config and iOS Hermes bundle export pass.
 - Electron 45 macOS arm64 package smoke passes with custom icon.
+- Packaged macOS arm64 app launched successfully and its preload IPC returned the current session.
+- macOS x64/arm64 DMG and ZIP, Windows x64/arm64 ZIP and NSIS installers, and combined Windows installer generated successfully. Windows runtime behavior remains unverified.
 - Node.js 24 and fresh dependency lock; old Expo 51 / React 18 peer packages removed.
 
 ## External gates
@@ -19,6 +21,8 @@ Version: 0.1.0. Engineering MVP is verified locally. App Store submission is not
 - Complete the [TestFlight device matrix](store/TESTFLIGHT_QA.md), including notifications, lock screen, force quit, reboot, time changes, VoiceOver and large text.
 - Capture real iPhone/iPad screenshots from the verified native build. No mock screenshot is represented as a device capture.
 - Desktop installers are unsigned until Developer ID / Windows code signing is configured.
+- GitHub push was rejected because the current OAuth token lacks `workflow` scope. Run `gh auth refresh -h github.com -s workflow`, then push `main`. Remote is `https://github.com/NicoHsu/planView.git`; SSH authentication failed, HTTPS repository access works.
+- Public support/privacy page sources and the Pages workflow are prepared, but the website is not live until the push succeeds and GitHub Pages is enabled.
 
 ## Security follow-up
 

@@ -47,24 +47,10 @@ export async function saveActiveSession(session) {
   ]);
 }
 
-export async function clearActiveSession() {
-  const db = await getDb();
-  await db.runAsync("DELETE FROM kv WHERE key = ?", ["active_session"]);
-}
-
 export async function getHistory() {
   const db = await getDb();
   const rows = await db.getAllAsync("SELECT record_json FROM history ORDER BY ended_at DESC");
   return rows.map((row) => parseJson(row.record_json, null)).filter(Boolean);
-}
-
-export async function appendHistory(record) {
-  const db = await getDb();
-  await db.runAsync("INSERT OR REPLACE INTO history (id, ended_at, record_json) VALUES (?, ?, ?)", [
-    record.sessionId,
-    record.endedAt,
-    JSON.stringify(record)
-  ]);
 }
 
 export async function completeSessionTransaction(record, nextTasks) {
