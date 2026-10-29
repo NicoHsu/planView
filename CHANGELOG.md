@@ -10,3 +10,5 @@
 - 更新 Expo 58、React Native 0.88、React 19.3、Electron 45，統一 Node.js 24 開發環境。
 - 加入 26 個自動測試、3 個 Electron 操作測試、CI 與支援頁面部署設定。
 - 加入桌面品牌 icon、公開支援／隱私頁面與 iOS 發布文件。
+- iOS 模擬器版本已通過 EAS 原生建置，無須 Apple 付費會員即可下載模擬器成品。
+- GitHub 原始碼已推送、CI 通過，支援與隱私權網站已上線。

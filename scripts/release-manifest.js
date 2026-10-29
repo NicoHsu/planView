@@ -12,13 +12,15 @@ const names = [
   ]),
   `PlanView Focus Planner-${version}-win.exe`
 ];
+const simulator = `PlanView-${version}-ios-simulator.tar.gz`;
+if (fs.existsSync(path.join(directory, simulator))) names.push(simulator);
 const artifacts = names.map((name) => {
   const data = fs.readFileSync(path.join(directory, name));
   return { name, bytes: data.length, sha256: crypto.createHash("sha256").update(data).digest("hex") };
 });
 fs.writeFileSync(path.join(directory, "release-manifest.json"), JSON.stringify({
   version, generatedAt: new Date().toISOString(), signed: false,
-  note: "Unsigned testing builds. Windows binaries have not been executed on Windows.", artifacts
+  note: "Desktop installers are unsigned; Windows runtime is unverified. iOS archive is simulator-only.", artifacts
 }, null, 2) + "\n");
 fs.writeFileSync(path.join(directory, "SHA256SUMS"), artifacts.map((item) => `${item.sha256}  ${item.name}`).join("\n") + "\n");
 console.log(`Verified ${artifacts.length} installer/archive files; wrote dist/release-manifest.json and dist/SHA256SUMS.`);

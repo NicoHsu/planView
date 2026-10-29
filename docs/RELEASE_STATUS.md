@@ -12,19 +12,26 @@ Version: 0.1.0. Engineering MVP is verified locally. App Store submission is not
 - Packaged macOS arm64 app launched successfully and its preload IPC returned the current session.
 - macOS x64/arm64 DMG and ZIP, Windows x64/arm64 ZIP and NSIS installers, and combined Windows installer generated successfully. Windows runtime behavior remains unverified.
 - Node.js 24 and fresh dependency lock; old Expo 51 / React 18 peer packages removed.
+- GitHub CI passed: https://github.com/NicoHsu/planView/actions/runs/40863961381
+- GitHub Pages deployment passed: https://github.com/NicoHsu/planView/actions/runs/40864050633
+- Public home, support, privacy and stylesheet return HTTP 200: https://nicohsu.github.io/planView/
+- EAS iOS simulator native build finished successfully: https://expo.dev/accounts/nicohsu/projects/planview/builds/92ed130c-4f1e-47e1-9248-3eea289be3a2
 
 ## External gates
 
 - Expo login verified and EAS project linked: https://expo.dev/accounts/nicohsu/projects/planview (project ID `8c75ead5-a8eb-47ef-bf31-fb872eb9d723`).
-- Simulator native build submitted: https://expo.dev/accounts/nicohsu/projects/planview/builds/92ed130c-4f1e-47e1-9248-3eea289be3a2 (status pending verification).
 - The owner confirmed there is no paid Apple Developer membership. TestFlight / App Store distribution cannot proceed until membership is available. A simulator build profile is provided and does not require paid membership.
 - App Store Connect app record, signing and provisioning are not configured.
-- This Mac has Command Line Tools only, without Xcode / `simctl`; iOS native build and device QA have not run.
+- This Mac has Command Line Tools only, without Xcode / `simctl`; native compilation passed on EAS, but iOS simulator execution and physical-device QA have not run locally.
 - Complete the [TestFlight device matrix](store/TESTFLIGHT_QA.md), including notifications, lock screen, force quit, reboot, time changes, VoiceOver and large text.
 - Capture real iPhone/iPad screenshots from the verified native build. No mock screenshot is represented as a device capture.
 - Desktop installers are unsigned until Developer ID / Windows code signing is configured.
-- GitHub push was rejected because the current OAuth token lacks `workflow` scope. Run `gh auth refresh -h github.com -s workflow`, then push `main`. Remote is `https://github.com/NicoHsu/planView.git`; SSH authentication failed, HTTPS repository access works.
-- Public support/privacy page sources and the Pages workflow are prepared, but the website is not live until the push succeeds and GitHub Pages is enabled.
+
+## Deliverables
+
+`dist/release-manifest.json` and `dist/SHA256SUMS` list the verified desktop artifacts and downloaded iOS simulator archive. Desktop files are unsigned test builds. The iOS simulator archive cannot be installed on a physical iPhone.
+
+Source repository: https://github.com/NicoHsu/planView (HTTPS push configured; SSH authentication is unavailable on this machine).
 
 ## Security follow-up
 
